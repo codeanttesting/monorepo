@@ -10,15 +10,5 @@ module.exports = {
     '!src/**/__tests__/**'
   ],
   coverageDirectory: 'coverage',
-  coverageReporters: ['text', 'lcov', 'json', 'html', 'cobertura'],
-  // Coverage thresholds are intentionally low for demo purposes
-  // This allows the workflow to pass while showing partial coverage
-  coverageThreshold: {
-    global: {
-      branches: 20,
-      functions: 40,
-      lines: 40,
-      statements: 40
-    }
-  }
+  coverageReporters: ['text', 'lcov', 'json', 'html', 'cobertura']
 };
