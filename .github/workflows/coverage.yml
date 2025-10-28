@@ -1,0 +1,62 @@
+name: Code Coverage
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run backend tests with coverage
+        run: |
+          cd services/backend
+          npm run test:coverage
+
+      - name: Run frontend tests with coverage
+        run: |
+          cd services/frontend
+          npm run test:coverage
+
+      - name: Convert backend coverage to Cobertura format
+        run: |
+          cd services/backend
+          npx jest --coverage --coverageReporters=cobertura
+
+      - name: Convert frontend coverage to Cobertura format
+        run: |
+          cd services/frontend
+          npx jest --coverage --coverageReporters=cobertura
+
+      - name: Upload backend coverage to CodeAnt AI
+        uses: codeant-ai/codeant-coverage-action@v1
+        with:
+          access_token: ${{ secrets.ACCESS_TOKEN_GITHUB }}
+          coverage_file: services/backend/coverage/cobertura-coverage.xml
+          module: backend
+
+      - name: Upload frontend coverage to CodeAnt AI
+        uses: codeant-ai/codeant-coverage-action@v1
+        with:
+          access_token: ${{ secrets.ACCESS_TOKEN_GITHUB }}
+          coverage_file: services/frontend/coverage/cobertura-coverage.xml
+          module: frontend

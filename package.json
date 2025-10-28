@@ -1,0 +1,16 @@
+{
+  "name": "codeanttesting-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "services/*"
+  ],
+  "scripts": {
+    "test": "npm run test --workspaces",
+    "test:coverage": "npm run test:coverage --workspaces",
+    "coverage:report": "node scripts/merge-coverage.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
