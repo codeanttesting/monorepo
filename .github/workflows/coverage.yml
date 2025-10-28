@@ -37,15 +37,17 @@ jobs:
           npm run test:coverage
 
       - name: Upload backend coverage to CodeAnt AI
-        uses: CodeAnt-AI/codeant-coverage-action@v0.0.3
+        uses: CodeAnt-AI/codeant-coverage-action@v0.0.4
         with:
           access_token: ${{ secrets.ACCESS_TOKEN_GITHUB }}
           coverage_file: services/backend/coverage/cobertura-coverage.xml
           module: backend
+          module_path: services/backend
 
       - name: Upload frontend coverage to CodeAnt AI
-        uses: CodeAnt-AI/codeant-coverage-action@v0.0.3
+        uses: CodeAnt-AI/codeant-coverage-action@v0.0.4
         with:
           access_token: ${{ secrets.ACCESS_TOKEN_GITHUB }}
           coverage_file: services/frontend/coverage/cobertura-coverage.xml
           module: frontend
+          module_path: services/frontend
