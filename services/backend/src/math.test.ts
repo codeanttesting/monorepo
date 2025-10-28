@@ -1,4 +1,4 @@
-import { add, subtract, divide } from './math';
+import { add, subtract, divide, multiply } from './math';
 
 describe('Math utilities', () => {
   describe('add', () => {
@@ -27,5 +27,11 @@ describe('Math utilities', () => {
     });
   });
 
-  // Note: multiply and power functions are NOT tested - intentionally for coverage demo
+  describe('multiply', () => {
+    it('should multiply two numbers', () => {
+      expect(multiply(5, 4)).toBe(20);
+    });
+  });
+
+  // Note: power function is NOT tested - intentionally for coverage demo
 });

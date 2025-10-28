@@ -1,4 +1,4 @@
-import { unique, chunk, sum } from './array-utils';
+import { unique, chunk, sum, flatten } from './array-utils';
 
 describe('Array utilities', () => {
   describe('unique', () => {
@@ -23,5 +23,11 @@ describe('Array utilities', () => {
     });
   });
 
-  // Note: flatten and average are NOT tested - intentionally for coverage demo
+  describe('flatten', () => {
+    it('should flatten nested arrays', () => {
+      expect(flatten([[1, 2], [3, 4], [5]])).toEqual([1, 2, 3, 4, 5]);
+    });
+  });
+
+  // Note: average is NOT tested - intentionally for coverage demo
 });
