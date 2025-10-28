@@ -1,4 +1,4 @@
-import { add, subtract, divide, multiply } from './math';
+import { add, subtract, divide, multiply, power } from './math';
 
 describe('Math utilities', () => {
   describe('add', () => {
@@ -33,5 +33,13 @@ describe('Math utilities', () => {
     });
   });
 
-  // Note: power function is NOT tested - intentionally for coverage demo
+  describe('power', () => {
+    it('should calculate power of a number', () => {
+      expect(power(2, 3)).toBe(8);
+    });
+
+    it('should handle power of 0', () => {
+      expect(power(5, 0)).toBe(1);
+    });
+  });
 });

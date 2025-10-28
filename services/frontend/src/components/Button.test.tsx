@@ -20,5 +20,18 @@ describe('Button component', () => {
     expect(screen.getByTestId('button')).toBeDisabled();
   });
 
-  // Note: variant prop is NOT tested - intentionally for coverage demo
+  it('should apply primary variant class', () => {
+    render(<Button variant="primary">Primary</Button>);
+    expect(screen.getByTestId('button')).toHaveClass('btn-primary');
+  });
+
+  it('should apply secondary variant class', () => {
+    render(<Button variant="secondary">Secondary</Button>);
+    expect(screen.getByTestId('button')).toHaveClass('btn-secondary');
+  });
+
+  it('should default to primary variant', () => {
+    render(<Button>Default</Button>);
+    expect(screen.getByTestId('button')).toHaveClass('btn-primary');
+  });
 });

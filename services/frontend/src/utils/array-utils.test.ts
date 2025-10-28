@@ -1,4 +1,4 @@
-import { unique, chunk, sum, flatten } from './array-utils';
+import { unique, chunk, sum, flatten, average } from './array-utils';
 
 describe('Array utilities', () => {
   describe('unique', () => {
@@ -15,11 +15,19 @@ describe('Array utilities', () => {
     it('should split array into chunks', () => {
       expect(chunk([1, 2, 3, 4, 5], 2)).toEqual([[1, 2], [3, 4], [5]]);
     });
+
+    it('should handle empty array', () => {
+      expect(chunk([], 2)).toEqual([]);
+    });
   });
 
   describe('sum', () => {
     it('should calculate sum of numbers', () => {
       expect(sum([1, 2, 3, 4])).toBe(10);
+    });
+
+    it('should return 0 for empty array', () => {
+      expect(sum([])).toBe(0);
     });
   });
 
@@ -27,7 +35,19 @@ describe('Array utilities', () => {
     it('should flatten nested arrays', () => {
       expect(flatten([[1, 2], [3, 4], [5]])).toEqual([1, 2, 3, 4, 5]);
     });
+
+    it('should handle empty arrays', () => {
+      expect(flatten([])).toEqual([]);
+    });
   });
 
-  // Note: average is NOT tested - intentionally for coverage demo
+  describe('average', () => {
+    it('should calculate average of numbers', () => {
+      expect(average([1, 2, 3, 4, 5])).toBe(3);
+    });
+
+    it('should return 0 for empty array', () => {
+      expect(average([])).toBe(0);
+    });
+  });
 });
