@@ -36,16 +36,6 @@ jobs:
           cd services/frontend
           npm run test:coverage
 
-      - name: Convert backend coverage to Cobertura format
-        run: |
-          cd services/backend
-          npx jest --coverage --coverageReporters=cobertura
-
-      - name: Convert frontend coverage to Cobertura format
-        run: |
-          cd services/frontend
-          npx jest --coverage --coverageReporters=cobertura
-
       - name: Upload backend coverage to CodeAnt AI
         uses: CodeAnt-AI/codeant-coverage-action@v0.0.3
         with:
