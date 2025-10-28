@@ -48,14 +48,14 @@ jobs:
           npx jest --coverage --coverageReporters=cobertura
 
       - name: Upload backend coverage to CodeAnt AI
-        uses: codeant-ai/codeant-coverage-action@v1
+        uses: CodeAnt-AI/codeant-coverage-action@v0.0.3
         with:
           access_token: ${{ secrets.ACCESS_TOKEN_GITHUB }}
           coverage_file: services/backend/coverage/cobertura-coverage.xml
           module: backend
 
       - name: Upload frontend coverage to CodeAnt AI
-        uses: codeant-ai/codeant-coverage-action@v1
+        uses: CodeAnt-AI/codeant-coverage-action@v0.0.3
         with:
           access_token: ${{ secrets.ACCESS_TOKEN_GITHUB }}
           coverage_file: services/frontend/coverage/cobertura-coverage.xml
