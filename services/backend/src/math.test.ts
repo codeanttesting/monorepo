@@ -1,4 +1,4 @@
-import { add, subtract, divide, multiply, power } from './math';
+import { add, subtract, divide, multiply, power, modulo } from './math';
 
 describe('Math utilities', () => {
   describe('add', () => {
@@ -42,4 +42,16 @@ describe('Math utilities', () => {
       expect(power(5, 0)).toBe(1);
     });
   });
+
+  describe('modulo', () => {
+    it('should calculate modulo of two numbers', () => {
+      expect(modulo(10, 3)).toBe(1);
+    });
+
+    it('should throw error when modulo by zero', () => {
+      expect(() => modulo(10, 0)).toThrow('Cannot calculate modulo with zero');
+    });
+  });
+
+  // Note: factorial function is NOT tested - intentionally for coverage demo
 });

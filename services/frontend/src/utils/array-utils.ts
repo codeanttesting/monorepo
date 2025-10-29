@@ -22,3 +22,17 @@ export function average(arr: number[]): number {
   if (arr.length === 0) return 0;
   return sum(arr) / arr.length;
 }
+
+export function max(arr: number[]): number {
+  if (arr.length === 0) {
+    throw new Error('Cannot find max of empty array');
+  }
+  return Math.max(...arr);
+}
+
+export function min(arr: number[]): number {
+  if (arr.length === 0) {
+    throw new Error('Cannot find min of empty array');
+  }
+  return Math.min(...arr);
+}

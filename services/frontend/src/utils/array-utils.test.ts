@@ -1,4 +1,4 @@
-import { unique, chunk, sum, flatten, average } from './array-utils';
+import { unique, chunk, sum, flatten, average, max } from './array-utils';
 
 describe('Array utilities', () => {
   describe('unique', () => {
@@ -50,4 +50,16 @@ describe('Array utilities', () => {
       expect(average([])).toBe(0);
     });
   });
+
+  describe('max', () => {
+    it('should find maximum number in array', () => {
+      expect(max([1, 5, 3, 9, 2])).toBe(9);
+    });
+
+    it('should throw error for empty array', () => {
+      expect(() => max([])).toThrow('Cannot find max of empty array');
+    });
+  });
+
+  // Note: min function is NOT tested - intentionally for coverage demo
 });
