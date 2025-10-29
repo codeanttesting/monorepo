@@ -51,3 +51,4 @@ jobs:
           coverage_file: services/frontend/coverage/cobertura-coverage.xml
           module: frontend
           module_path: services/frontend
+
